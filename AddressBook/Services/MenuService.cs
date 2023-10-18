@@ -8,6 +8,10 @@ public class MenuService
     public static void AddPersonMenu() // Vad användaren ska fylla i.
     {
         Person person = new Person();
+
+        Console.WriteLine("Ny Kontakt");
+        Console.WriteLine();
+
         Console.Write("Förnamn: ");
         person.FirstName = Console.ReadLine();
         Console.Write("Efternamn: ");
@@ -20,23 +24,31 @@ public class MenuService
 
 
         person.Address = new Address();
+
+        Console.WriteLine();
+        Console.WriteLine("Adress");
+        Console.WriteLine();
+
         Console.Write("Gatunamn: ");
         person.Address.StreetName = Console.ReadLine();
-        Console.Write("Gatunummer: ");
+        Console.Write("Husnummer: ");
         person.Address.StreetNumber = Console.ReadLine();
         Console.Write("Postnummer: ");
         person.Address.PostalCode = Console.ReadLine();
-        Console.Write("Stad/Ort: ");
+        Console.Write("Ort: ");
         person.Address.City = Console.ReadLine();
 
         personService.AddToList(person);
-        
+
     }
 
     public static void ViewAllPersonsMenu() 
     {
         foreach (var person in personService.GetAllPersons())
         {
+            Console.WriteLine("Kontaktlistan");
+            Console.WriteLine();
+
             Console.WriteLine(person.FullName);
             Console.WriteLine(person.PhoneNumber);
             Console.WriteLine(person.Email);
@@ -47,7 +59,10 @@ public class MenuService
 
     public static void ViewOnePersonMenu() // Visar enstaka kontakt.
     {
-        Console.Write("E-psotadress: ");
+        Console.WriteLine("Sök");
+        Console.WriteLine();
+
+        Console.Write("E-postadress: ");
         var email = Console.ReadLine();
 
         var person = personService.GetOnePerson(email!);
@@ -61,7 +76,10 @@ public class MenuService
 
     public static void RemoveOnePersonMenu() // Radera kontakt med hjälp av e-post.
     {
-        Console.Write("E-postAdress: ");
+        Console.WriteLine("Radera Kontakt");
+        Console.WriteLine();
+
+        Console.Write("E-postadress: ");
         var email = Console.ReadLine();
 
         personService.RemovePerson(email!);
@@ -72,13 +90,20 @@ public class MenuService
         do
         {
             Console.Clear();
-            Console.WriteLine(" Adressbok ");
+            Console.WriteLine("Adressbok ");
+            Console.WriteLine();
+
+            Console.Write("Vänligen välj ett alternativ från listan: ");
+            Console.WriteLine();
+            Console.WriteLine();
+
             Console.WriteLine("1. Lägg till ny kontakt");
             Console.WriteLine("2. Visa alla kontakter");
             Console.WriteLine("3. Sök efter specifik kontakt");
             Console.WriteLine("4. Radera en kontakt");
             Console.WriteLine("0. Stäng ner adressbok ");
-            Console.Write("Vänligen välj ett alternativ från listan: ");
+            Console.WriteLine();
+            Console.Write("Alternativ: ");
             var option = Console.ReadLine();
 
             Console.Clear();

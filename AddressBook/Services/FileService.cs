@@ -2,8 +2,8 @@
 
 public class FileService
 {
-    private static readonly string _filePath = @"C:\Users\Mr. M\Desktop\personuppgifter\persons.json";
-    private static readonly Stream? filePath;
+    private static readonly string _filePath = @"C:\Users\Mr. M\Desktop\PersonalContactList\persons.json";
+
 
     public static void SaveToFile(string contentAsJson) // Sparas kvar i Json.
     {
