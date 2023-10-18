@@ -108,7 +108,7 @@ public class MenuService
 
             Console.Clear();
 
-            switch (option)
+            switch (option) // Alternativen i meny valen. 
             {
                 case "1":
                     AddPersonMenu();
