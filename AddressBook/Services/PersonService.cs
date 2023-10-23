@@ -11,7 +11,9 @@ public class PersonService
     {
         _persons.Add(person);
 
-        FileService.SaveToFile(JsonConvert.SerializeObject(_persons)); // Sparar kontakter i fil.
+        // Sparar kontakter i fil.
+
+        FileService.SaveToFile(JsonConvert.SerializeObject(_persons)); 
     }
     public IEnumerable<Person> GetAllPersons()
     {
@@ -24,7 +26,9 @@ public class PersonService
 
     public Person GetOnePerson(String email)
     {
-        return _persons.FirstOrDefault(x => x.Email == email)!; // Raderar en kontakt genom E-mail.
+        // Raderar en kontakt genom E-mail.
+
+        return _persons.FirstOrDefault(x => x.Email == email)!; 
     }
 
     public void RemovePerson(string email)
@@ -32,7 +36,9 @@ public class PersonService
         var person = GetOnePerson(email);
         _persons.Remove(person);
 
-        FileService.SaveToFile(JsonConvert.SerializeObject(_persons)); // Uppdaterar min Json.
+        // Uppdaterar min Json.
+
+        FileService.SaveToFile(JsonConvert.SerializeObject(_persons)); 
     }
 }
 

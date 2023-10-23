@@ -4,8 +4,10 @@ namespace AddressBook.Services;
 
 public class MenuService
 {
-    private static readonly PersonService personService = new PersonService(); 
-    public static void AddPersonMenu() // Vad användaren ska fylla i.
+    private static readonly PersonService personService = new PersonService();
+
+    // Vad användaren ska fylla i.
+    public static void AddPersonMenu() 
     {
         Person person = new Person();
 
@@ -46,7 +48,7 @@ public class MenuService
     {
         foreach (var person in personService.GetAllPersons())
         {
-            Console.WriteLine("Kontaktlistan");
+            Console.WriteLine("Kontaktlista");
             Console.WriteLine();
 
             Console.WriteLine(person.FullName);
@@ -57,7 +59,8 @@ public class MenuService
         }
     }
 
-    public static void ViewOnePersonMenu() // Visar enstaka kontakt.
+    // Visar enstaka kontakt.
+    public static void ViewOnePersonMenu()  
     {
         Console.WriteLine("Sök");
         Console.WriteLine();
@@ -74,7 +77,8 @@ public class MenuService
         Console.WriteLine();
     }
 
-    public static void RemoveOnePersonMenu() // Radera kontakt med hjälp av e-post.
+    // Radera kontakt med hjälp av e-post.
+    public static void RemoveOnePersonMenu() 
     {
         Console.WriteLine("Radera Kontakt");
         Console.WriteLine();
@@ -85,6 +89,7 @@ public class MenuService
         personService.RemovePerson(email!);
     }
 
+    // Alternativen i meny valen.
     public static void MainMenu()
     {
         do
@@ -108,7 +113,7 @@ public class MenuService
 
             Console.Clear();
 
-            switch (option) // Alternativen i meny valen. 
+            switch (option)  
             {
                 case "1":
                     AddPersonMenu();

@@ -4,14 +4,15 @@ public class FileService
 {
     private static readonly string _filePath = @"C:\Users\Mr. M\Desktop\PersonalContactList\persons.json";
 
-
-    public static void SaveToFile(string contentAsJson) // Sparas kvar i Json.
+    // Sparas kvar i Json.
+    public static void SaveToFile(string contentAsJson) 
     {
         using StreamWriter sw = new StreamWriter(_filePath);
         sw.WriteLine(contentAsJson);
     }
 
-    public static string ReadFromFile() // Visar/läser sparade kontakter.
+    // Visar/läser sparade kontakter.
+    public static string ReadFromFile() 
     {
         if (File.Exists(_filePath))
         {
