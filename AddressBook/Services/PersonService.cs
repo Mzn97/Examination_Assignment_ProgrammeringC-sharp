@@ -5,11 +5,12 @@ namespace AddressBook.Services;
 
 public class PersonService
 {
-    private List<Person> _persons = new List<Person>(); 
+    private List<Person> _persons = new List<Person>();
 
     public void AddToList(Person person)
     {
         _persons.Add(person);
+
 
         // Sparar kontakter i fil.
 

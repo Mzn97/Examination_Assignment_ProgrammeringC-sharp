@@ -1,21 +1,24 @@
 using AddressBook.Models;
 using AddressBook.Services;
 
-namespace personService.Tests
+namespace personService.Tests;
+public class PersonServiceTests
 {
-    public class PersonServiceTests
+    [Fact]
+    public void AddPersonService_ShouldAddPersonItemSerivce_ReturnTrue()
     {
-        [Fact]  
-        public void AddPersonService_ShouldAddPersonItemSerivce_ReturnTrue()
-        {
-            PersonService _personService = new PersonService();
-            Person person = new() { Id = Guid.NewGuid(), FirstName,"Mazen", LastName };
+        // Arrange
+        PersonService _personService = new PersonService();
+        Person person = new Person { FirstName = "Mazen", LastName = "Karim", Email = "mazen@domain.com" };
 
+        // Act
+        _personService.AddToList(person);
 
-            bool result = _personService.AddPerson(person);
+        // Assert
+        var persons = _personService.GetAllPersons();
+        var addedPerson = persons.FirstOrDefault(p => p.Email == "mazen@domain.com");
 
-            Assert.True(result);
-
-        }
+        Assert.NotNull(addedPerson);
+        Assert.Equal("Mazen", addedPerson.FirstName);
     }
 }
